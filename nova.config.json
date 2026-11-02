@@ -1,0 +1,119 @@
+{
+  "assistantName": "Nova",
+  "wakeWordRequired": true,
+  "voice": {
+    "rate": 0,
+    "volume": 90
+  },
+  "behavior": {
+    "speak": true,
+    "minimumConfidence": 0.45,
+    "confirmFileOpens": true,
+    "confirmTasks": true,
+    "searchQuestionsInConversation": true
+  },
+  "hotkey": {
+    "key": "F8",
+    "holdMilliseconds": 500,
+    "listenSeconds": 8,
+    "sessionSeconds": 60,
+    "activationMinimumConfidence": 0.0
+  },
+  "whisper": {
+    "model": "base.en",
+    "language": "en",
+    "inputDevice": 7,
+    "voiceThreshold": 0.003,
+    "captureSampleRate": 44100,
+    "endSilenceSeconds": 0.85,
+    "maxUtteranceSeconds": 10
+  },
+  "search": {
+    "urlTemplate": "https://www.google.com/search?q={query}"
+  },
+  "paths": {
+    "desktop": "%USERPROFILE%\\Desktop",
+    "documents": "%USERPROFILE%\\Documents",
+    "downloads": "%USERPROFILE%\\Downloads",
+    "pictures": "%USERPROFILE%\\Pictures",
+    "music": "%USERPROFILE%\\Music",
+    "videos": "%USERPROFILE%\\Videos"
+  },
+  "fileSearchRoots": [
+    "%USERPROFILE%\\Desktop",
+    "%USERPROFILE%\\Documents",
+    "%USERPROFILE%\\Downloads"
+  ],
+  "apps": {
+    "notepad": "notepad.exe",
+    "calculator": "calc.exe",
+    "file explorer": "explorer.exe",
+    "explorer": "explorer.exe",
+    "settings": "ms-settings:",
+    "browser": "https://www.google.com",
+    "clock": "ms-clock:"
+  },
+  "tasks": {
+    "start work": {
+      "say": "Starting your work setup.",
+      "actions": [
+        {
+          "type": "path",
+          "target": "documents"
+        },
+        {
+          "type": "app",
+          "target": "browser"
+        }
+      ]
+    },
+    "focus settings": {
+      "say": "Opening Focus settings.",
+      "actions": [
+        {
+          "type": "uri",
+          "target": "ms-settings:quiethours"
+        }
+      ]
+    }
+  },
+  "modes": {
+    "focus": {
+      "say": "Opening Windows Focus settings. You can start a focus session there.",
+      "actions": [
+        {
+          "type": "uri",
+          "target": "ms-settings:quiethours"
+        }
+      ]
+    },
+    "work": {
+      "say": "Work mode is ready. Opening your Documents folder.",
+      "actions": [
+        {
+          "type": "path",
+          "target": "documents"
+        }
+      ]
+    },
+    "presentation": {
+      "say": "Opening Display settings for presentation mode.",
+      "actions": [
+        {
+          "type": "uri",
+          "target": "ms-settings:display"
+        }
+      ]
+    },
+    "quiet": {
+      "say": "Quiet mode enabled. I will keep spoken replies off until you say normal mode.",
+      "silence": true,
+      "actions": []
+    },
+    "normal": {
+      "say": "Normal mode enabled.",
+      "silence": false,
+      "actions": []
+    }
+  }
+}
